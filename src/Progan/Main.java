@@ -2,7 +2,6 @@ package Progan;
 
 import Entities.Product;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int ac;
         String name;
-        String r;
+        char r;
         double balance= 0;
 
         System.out.println("Enter the account number: ");
@@ -20,21 +19,19 @@ public class Main {
         name = sc.next();
 
         System.out.println("Is there a initial deposit?");
-        r=sc.next();
+        r = sc.next().charAt(0);
 
         Product product= new Product(ac,name,balance);
 
-        if (Objects.equals(r, "s")) {
+        if (r == 'r') {
             System.out.println("Enter the initial deposit");
             balance= sc.nextDouble();
             product.adddeposit(balance);
         }
 
-
         System.out.println("Account data:\n"+product);
 
         System.out.println("Enter a deposit value:");
-
         balance= sc.nextDouble();
         product.adddeposit(balance);
 
